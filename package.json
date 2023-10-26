@@ -1,0 +1,12 @@
+{
+  "name": "jadwal-kuliah",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev:client": "cd apps/client && npx next dev",
+    "dev:server": "cd apps/server && npm run dev"
+  },
+  "workspaces": [
+    "apps/*"
+  ]
+}
