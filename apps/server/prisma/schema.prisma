@@ -9,3 +9,9 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Mahasiswa {
+  id       Int    @id @default(autoincrement())
+  npm      String @unique
+  password String
+}
