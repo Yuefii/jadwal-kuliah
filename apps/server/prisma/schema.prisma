@@ -11,7 +11,39 @@ datasource db {
 }
 
 model Mahasiswa {
-  id       Int    @id @default(autoincrement())
-  npm      String @unique
-  password String
+  id           Int        @id @default(autoincrement())
+  npm          String     @unique
+  password     String
+  nama_lengkap String
+  jurusan      Jurusan[]
+  semester     Semester[]
+}
+
+model Mata_Kuliah {
+  id          Int        @id @default(autoincrement())
+  nama_matkul String
+  sks         Int
+  jurusan     Jurusan[]
+  semester    Semester[]
+  dosen       Dosen[]
+}
+
+model Jurusan {
+  id           Int           @id @default(autoincrement())
+  nama_jurusan String
+  mata_kuliah  Mata_Kuliah[]
+  mahasiswa    Mahasiswa[]
+}
+
+model Semester {
+  id          Int           @id @default(autoincrement())
+  Semester    String
+  mata_kuliah Mata_Kuliah[]
+  mahasiswa   Mahasiswa[]
+}
+
+model Dosen {
+  id          Int           @id @default(autoincrement())
+  nama_dosen  String
+  mata_kuliah Mata_Kuliah[]
 }
