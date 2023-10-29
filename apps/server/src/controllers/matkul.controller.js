@@ -1,9 +1,8 @@
 const { getMatkul } = require('../services/matkul.service');
 
 const getAllMatkul = async (req, res) => {
-  const { nama_matkul } = req.body;
   try {
-    const result = await getMatkul(nama_matkul);
+    const result = await getMatkul();
     res.json({
       data : result
     });

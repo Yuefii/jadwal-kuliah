@@ -37,7 +37,7 @@ model Jurusan {
 
 model Semester {
   id          Int           @id @default(autoincrement())
-  Semester    String
+  semester    String 
   mata_kuliah Mata_Kuliah[]
   mahasiswa   Mahasiswa[]
 }
@@ -47,3 +47,7 @@ model Dosen {
   nama_dosen  String
   mata_kuliah Mata_Kuliah[]
 }
+
+
+
+// if change model dont reset database, u can use @default()
