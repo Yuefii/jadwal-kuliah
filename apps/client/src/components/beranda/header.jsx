@@ -4,7 +4,7 @@ import Wave from "../wave";
 const Header = () => {
   return (
     <main>
-      <Wave src="/wave.svg" width={500} height={350} alt="wave" />
+      <Wave src="/wave.png" width={500} height={350} alt="wave" />
       <div className="relative">
         <div className="flex">
           <div className="mt-8">
