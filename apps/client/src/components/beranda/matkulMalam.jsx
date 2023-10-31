@@ -1,21 +1,35 @@
+import { ChalkboardTeacher, Clock } from "@phosphor-icons/react";
+
 const MatkulMalam = () => {
   return (
     <main>
-      <div className="p-3 text-center">
-        <ul className="text-blue-500 text-md font-semibold mb-2">
-          <li className="bg-blue-500 rounded-lg text-white text-lg">
+     <div className="p-3 text-center">
+        <div className="text-blue-500 text-md font-semibold mb-2">
+          <h1 className="bg-blue-500 rounded-lg text-white text-lg">
             Bahasa Indonesia
-          </li>
-          <li>18.30</li>
-          <li>516</li>
-        </ul>
-        <ul className="text-blue-500 text-md font-semibold">
-          <li className="bg-blue-500 rounded-lg text-white text-lg">
+          </h1>
+          <div className="flex gap-2 justify-center items-center p-2">
+              <Clock size={20} />
+              <p>09.30</p>
+            </div>
+            <div className="flex gap-2 justify-center items-center">
+              <ChalkboardTeacher size={20} />
+              <p>416</p>
+            </div>
+        </div>
+        <div className="text-blue-500 text-md font-semibold">
+          <h1 className="bg-blue-500 rounded-lg text-white text-lg">
             Matematika
-          </li>
-          <li>18.30</li>
-          <li>516</li>
-        </ul>
+          </h1>
+          <div className="flex gap-2 justify-center items-center p-2">
+              <Clock size={20} />
+              <p>09.30</p>
+            </div>
+            <div className="flex gap-2 justify-center items-center">
+              <ChalkboardTeacher size={20} />
+              <p>416</p>
+            </div>
+        </div>
       </div>
     </main>
   );
