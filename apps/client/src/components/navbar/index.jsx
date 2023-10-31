@@ -19,8 +19,8 @@ const Navbar = () => {
               <House size={30} />
             </li>
           </Link>
-          <Link href="/views/beranda">
-            <li className={`flex flex-col justify-center items-center ${isLinkActive("/views/beranda")}`}>
+          <Link href="/views/jadwal">
+            <li className={`flex flex-col justify-center items-center ${isLinkActive("/views/jadwal")}`}>
               <CalendarCheck size={30} />
             </li>
           </Link>
