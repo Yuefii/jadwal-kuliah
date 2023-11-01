@@ -1,5 +1,15 @@
 import Image from "next/image";
 const Header = () => {
+  const timeZone = "Asia/Jakarta";
+  const options = {
+    timeZone,
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const hariIni = new Date().toLocaleDateString("id-ID", options);
+
   return (
     <main>
       <Image
@@ -13,7 +23,7 @@ const Header = () => {
         <div className="flex justify-between mx-auto -mt-4">
           <div className="text-white font-semibold mx-4 my-10 md:ml-20">
             <h1 className="text-xl md:text-2xl">Jadwal Hari Ini</h1>
-            <h1 className="text-xs">Senin 28 oktober 2023</h1>
+            <h1 className="text-xs">{hariIni}</h1>
           </div>
         </div>
       </div>
