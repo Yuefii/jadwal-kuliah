@@ -16,11 +16,6 @@ const Header = () => {
 
   const [isClicked, setIsClicked] = useState(false);
   const handleClick = () => {
-    if (isClicked) {
-      window.postMessage('disableNotifications', '*');
-    } else {
-      window.postMessage('enableNotifications', '*');
-    }
     setIsClicked(!isClicked);
   };
 
