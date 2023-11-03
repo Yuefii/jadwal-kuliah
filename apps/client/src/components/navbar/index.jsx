@@ -16,15 +16,6 @@ const Navbar = () => {
     <main>
       <div className="fixed bottom-0 right-0 left-0 bg-blue-500 rounded-t-2xl p-4 lg:hidden">
         <ul className="flex justify-center gap-20 text-white">
-          <Link href="/">
-            <li
-              className={`flex flex-col justify-center items-center ${isLinkActive(
-                "/"
-              )}`}
-            >
-              <House size={30} />
-            </li>
-          </Link>
           <Link href="/views/jadwal">
             <li
               className={`flex flex-col justify-center items-center ${isLinkActive(
@@ -32,6 +23,15 @@ const Navbar = () => {
               )}`}
             >
               <CalendarCheck size={30} />
+            </li>
+          </Link>
+          <Link href="/">
+            <li
+              className={`flex flex-col justify-center items-center ${isLinkActive(
+                "/"
+              )}`}
+            >
+              <House size={30} />
             </li>
           </Link>
           <Link href="/views/comingSoon">

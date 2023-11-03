@@ -1,0 +1,150 @@
+[
+    {
+        "kelas": "Pagi",
+        "data": [
+            {
+                "hari": "Senin",
+                "mataKuliah": [
+                    {
+                        "nama": "Sistem Basis Data",
+                        "jam": "09:00",
+                        "dosen": "Reksa",
+                        "ruangan": "FK416"
+                    },
+                    {
+                        "nama": "Bahasa Indonesia",
+                        "jam": "10:30",
+                        "dosen": "Aliah",
+                        "ruangan": "FK521"
+                    }
+                ]
+            },
+            {
+                "hari": "Rabu",
+                "mataKuliah": [
+                    {
+                        "nama": "Pemograman Dasar",
+                        "jam": "09:00",
+                        "dosen": "Mustar",
+                        "ruangan": "LABFK301"
+                    },
+                    {
+                        "nama": "Agama Islam",
+                        "jam": "10:30",
+                        "dosen": "Yani",
+                        "ruangan": "FK410"
+                    }
+                ]
+            },
+            {
+                "hari": "Jumat",
+                "mataKuliah": [
+                    {
+                        "nama": "Matematik 2",
+                        "jam": "08:30",
+                        "dosen": "Anisa",
+                        "ruangan": "FK205"
+                    },
+                    {
+                        "nama": "Struktur Data",
+                        "jam": "10:00",
+                        "dosen": "Nur",
+                        "ruangan": "FK205"
+                    }
+                ]
+            },
+            {
+                "hari": "Sabtu",
+                "mataKuliah": [
+                    {
+                        "nama": "Kom. Data & Jarkom",
+                        "jam": "07:30",
+                        "dosen": "Edy",
+                        "ruangan": "FK309"
+                    },
+                    {
+                        "nama": "English for Computer",
+                        "jam": "09:00",
+                        "dosen": "Eva",
+                        "ruangan": "FK309"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "kelas": "Malam",
+        "data": [
+            {
+                "hari": "Selasa",
+                "mataKuliah": [
+                    {
+                        "nama": "Agama Islam",
+                        "jam": "18:30",
+                        "dosen": "Yani",
+                        "ruangan": "FK309"
+                    },
+                    {
+                        "nama": "Sistem Basis Data",
+                        "jam": "20.00",
+                        "dosen": "Budi",
+                        "ruangan": "FK309"
+                    }
+                ]
+            },
+            {
+                "hari": "Rabu",
+                "mataKuliah": [
+                    {
+                        "nama": "Struktur Data",
+                        "jam": "18.30",
+                        "dosen": "Nur",
+                        "ruangan": "FK201"
+                    },
+                    {
+                        "nama": "Pemograman Dasar",
+                        "jam": "20.00",
+                        "dosen": "Ferdi",
+                        "ruangan": "LABFS505"
+                    }
+                ]
+            },
+            {
+                "hari": "Kamis",
+                "mataKuliah": [
+                    {
+                        "nama": "English for Comp",
+                        "jam": "18.30",
+                        "dosen": "Aris",
+                        "ruangan": "FK518"
+                    },
+                    {
+                        "nama": "Kom. Data & Jarkom",
+                        "jam": "20.00",
+                        "dosen": "Joni",
+                        "ruangan": "FK518"
+                    }
+                ]
+            },
+            {
+                "hari": "Jumat",
+                "mataKuliah": [
+                    {
+                        "nama": "Matematika 2",
+                        "jam": "18.30",
+                        "dosen": "Vanes",
+                        "ruangan": "FK308"
+                    },
+                    {
+                        "nama": "Bahasa Indonesia",
+                        "jam": "20.00",
+                        "dosen": "Aliah",
+                        "ruangan": "FK308"
+                    }
+                ]
+            }
+        ]
+    }
+]
+  
+  
