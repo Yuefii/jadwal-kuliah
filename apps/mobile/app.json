@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "mobile",
-    "slug": "mobile",
+    "slug": "jadwal kuliah",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -29,7 +29,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "657e4641-a70c-4b59-81bb-a0411f5fcb8e"
+        "projectId": "71528e23-8cbe-4624-acc2-80cdfa90b5b1"
       }
     }
   }

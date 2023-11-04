@@ -76,11 +76,28 @@
         "kelas": "Malam",
         "data": [
             {
+                "hari": "Senin",
+                "mataKuliah": [
+                    {
+                        "nama": "Bahasa Indonesia",
+                        "jam": "18:30",
+                        "dosen": "Aliah",
+                        "ruangan": "FK412"
+                    },
+                    {
+                        "nama": "Matematik 2",
+                        "jam": "20.00",
+                        "dosen": "Vanes",
+                        "ruangan": "FK412"
+                    }
+                ]
+            },
+            {
                 "hari": "Selasa",
                 "mataKuliah": [
                     {
                         "nama": "Agama Islam",
-                        "jam": "18:30",
+                        "jam": "18.30",
                         "dosen": "Yani",
                         "ruangan": "FK309"
                     },
@@ -99,7 +116,7 @@
                         "nama": "Struktur Data",
                         "jam": "18.30",
                         "dosen": "Nur",
-                        "ruangan": "FK201"
+                        "ruangan": "FK411"
                     },
                     {
                         "nama": "Pemograman Dasar",
@@ -119,27 +136,10 @@
                         "ruangan": "FK518"
                     },
                     {
-                        "nama": "Kom. Data & Jarkom",
+                        "nama": "Komp. Data & Jarkom",
                         "jam": "20.00",
                         "dosen": "Joni",
                         "ruangan": "FK518"
-                    }
-                ]
-            },
-            {
-                "hari": "Jumat",
-                "mataKuliah": [
-                    {
-                        "nama": "Matematika 2",
-                        "jam": "18.30",
-                        "dosen": "Vanes",
-                        "ruangan": "FK308"
-                    },
-                    {
-                        "nama": "Bahasa Indonesia",
-                        "jam": "20.00",
-                        "dosen": "Aliah",
-                        "ruangan": "FK308"
                     }
                 ]
             }
