@@ -2,17 +2,10 @@ import Image from "next/image";
 import { BellRinging, BellSlash } from "@phosphor-icons/react";
 import Link from "next/link";
 import { useState } from "react";
+import { getFormattedDate } from "@/utils/formatedDay";
 
 const Header = () => {
-  const timeZone = "Asia/Jakarta";
-  const options = {
-    timeZone,
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  const hariIni = new Date().toLocaleDateString("id-ID", options);
+  const hariIni = getFormattedDate()
 
   const [isClicked, setIsClicked] = useState(false);
   const handleClick = () => {
@@ -42,7 +35,7 @@ const Header = () => {
             </div>
             <div className="mt-3 text-white font-semibold">
               <h1>Hallo, Users</h1>
-              <h1>Teknologi Informasi</h1>
+              <h1>Teknologi Informasi 2</h1>
             </div>
           </div>
           <div className="m-3 text-white cursor-pointer" onClick={handleClick}>
@@ -56,7 +49,7 @@ const Header = () => {
           </div>
           <div>
             <Link href="/views/comingSoon">
-              <button className="text-xs text-white bg-blue-500 py-2 px-4 my-8 mx-8 sm:mx-28 md:mx-36 md:text-sm rounded-xl">
+              <button className="text-xs text-white font-semibold shadow-sm bg-blue-500 py-2 px-4 my-8 mx-8 sm:mx-28 md:mx-36 md:text-sm rounded-xl hover:bg-blue-800">
                 Lihat Jadwal
               </button>
             </Link>

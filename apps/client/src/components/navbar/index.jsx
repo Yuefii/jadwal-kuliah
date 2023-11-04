@@ -8,7 +8,7 @@ const Navbar = () => {
 
   const isLinkActive = (path) => {
     return pathname === path
-      ? "border-4 border-white rounded-full bg-blue-500 -mt-8 p-2"
+      ? "border-4 border-white rounded-full bg-blue-800 -mt-8 p-2"
       : "";
   };
 

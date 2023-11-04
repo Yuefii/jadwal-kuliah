@@ -1,5 +1,5 @@
 import { ChalkboardTeacher, Clock, User } from "@phosphor-icons/react";
-import { getFormattedDay } from '@/utils/formatHari';
+import { getFormattedDay } from '@/utils/formatedDay';
 import jadwal from "@/json/jadwal";
 
 const MatkulPagi = () => {
@@ -14,7 +14,7 @@ const MatkulPagi = () => {
     <main>
       <div className="p-3 text-center">
         {jadwalHariIni ? (
-          <div className="text-blue-500 text-sm font-semibold mb-2">
+          <div className="text-blue-800 text-sm font-semibold mb-2">
             {jadwalHariIni.mataKuliah.map((mataKuliah, index) => (
               <div key={index} className="mb-2">
                 <h1 className="bg-blue-500 rounded-lg text-white text-lg">
@@ -38,7 +38,7 @@ const MatkulPagi = () => {
             ))}
           </div>
         ) : (
-          <p className="text-blue-500 font-semibold">Hari ini Libur</p>
+          <p className="text-blue-800 font-semibold">Hari ini Libur</p>
         )}
       </div>
     </main>

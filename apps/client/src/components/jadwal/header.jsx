@@ -13,7 +13,7 @@ const Header = () => {
         <div className="flex justify-between mx-auto -mt-4">
           <div className="text-white font-semibold mx-4 my-10 md:ml-20">
             <h1 className="text-xl md:text-2xl">Teknologi Informasi</h1>
-            <h1 className="text-xs">Semester 2</h1>
+            <h1 className="text-sm">Semester 2</h1>
           </div>
         </div>
       </div>

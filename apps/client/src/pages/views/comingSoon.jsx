@@ -21,7 +21,7 @@ const ComingSoon = () => {
           />
         </div>
         <div className="flex justify-center items-center p-5">
-          <div className="text-center text-blue-500 font-bold text-lg">
+          <div className="text-center text-blue-800 font-bold text-lg">
             <p>Coming Soon</p>
             <p>Lagi Proses Sabar!!</p>
           </div>
