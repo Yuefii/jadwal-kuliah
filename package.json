@@ -6,6 +6,7 @@
     "client:install": "cd apps/client && npm install",
     "server:install": "cd apps/client && npm install",
     "dev:client": "cd apps/client && npx next dev",
+    "dev:mobile": "cd apps/mobile && npx expo start --clear",
     "dev:server": "cd apps/server && npm run dev",
     "docker": "cd apps/server && docker-compose up -d",
     "docker-stop": "cd apps/server && docker-compose down",
