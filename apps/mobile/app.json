@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "jadwal-kuliah",
-    "slug": "Jadwal Kuliah",
+    "name": "jadwalkuliah",
+    "slug": "JadwalKuliah",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/logo.png",
@@ -29,7 +29,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "71528e23-8cbe-4624-acc2-80cdfa90b5b1"
+        "projectId": "b430faa7-aac8-493a-9fbc-895a5f9f5761"
       }
     }
   }
