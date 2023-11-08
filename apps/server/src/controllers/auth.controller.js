@@ -4,9 +4,9 @@ const jwt = require('jsonwebtoken');
 const secretKey = process.env.SECRET_KEY;
 
 const handleRegistration = async (req, res) => {
-  const { npm, password } = req.body;
+  const { nama_lengkap, jurusan, semesterId, npm, password } = req.body;
   try {
-    const result = await registerUser(npm, password);
+    const result = await registerUser(nama_lengkap, jurusan, semesterId, npm, password);
     res.json(result);
   } catch (error) {
     res.status(400).json({ error: error.message });

@@ -11,12 +11,11 @@ datasource db {
 }
 
 model Mahasiswa {
-  id           Int        @id @default(autoincrement())
-  npm          String     @unique
-  password     String
+  npm          String     @id @unique
   nama_lengkap String
   jurusan      Jurusan[]
   semester     Semester[]
+  password     String
 }
 
 model Mata_Kuliah {
@@ -30,14 +29,14 @@ model Mata_Kuliah {
 
 model Jurusan {
   id           Int           @id @default(autoincrement())
-  nama_jurusan String
+  nama_jurusan String        @unique
   mata_kuliah  Mata_Kuliah[]
   mahasiswa    Mahasiswa[]
 }
 
 model Semester {
   id          Int           @id @default(autoincrement())
-  semester    String 
+  semester    String
   mata_kuliah Mata_Kuliah[]
   mahasiswa   Mahasiswa[]
 }
@@ -47,7 +46,5 @@ model Dosen {
   nama_dosen  String
   mata_kuliah Mata_Kuliah[]
 }
-
-
 
 // if change model dont reset database, u can use @default()
