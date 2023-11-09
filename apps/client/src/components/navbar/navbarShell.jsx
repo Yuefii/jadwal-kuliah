@@ -1,7 +1,7 @@
 import Navbar from "."
 import { useRouter } from "next/router"
 
-const disableNavbar = ["/oke"]
+const disableNavbar = ["/auth/login", "/auth/register" ]
 
 const NavbarShell = (props) => {
     const { children } = props
