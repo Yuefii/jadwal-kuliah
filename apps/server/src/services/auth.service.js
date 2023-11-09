@@ -2,7 +2,7 @@ const prisma = require('../lib/prisma');
 const bcrypt = require('bcrypt');
 
 
-const registerUser = async (nama_lengkap, jurusanNama, semesterId, npm, password, ) => {
+const registerUser = async (nama_lengkap, jurusanNama, semesterKe, npm, password, ) => {
   const hashedPassword = await bcrypt.hash(password, 10);
   try {
     const jurusan = await prisma.jurusan.findUnique({
@@ -14,6 +14,15 @@ const registerUser = async (nama_lengkap, jurusanNama, semesterId, npm, password
     if (!jurusan) {
       throw new Error('Jurusan tidak ditemukan');
     }
+    const semesters = await prisma.semester.findUnique({
+      where: {
+        semester_ke: semesterKe
+      },
+    });
+
+    if (!semesters) {
+      throw new Error('Jurusan tidak ditemukan');
+    }
     const result = await prisma.mahasiswa.create({
       data: {
         nama_lengkap, 
@@ -23,10 +32,11 @@ const registerUser = async (nama_lengkap, jurusanNama, semesterId, npm, password
           connect: { id: jurusan.id }
         },
         semester: {
-          connect: { id: semesterId }
+          connect: { id: semesters.id }
         },
       },
     });
+    console.log(result);
     return result;
   } catch (error) {
     throw new Error('Registration failed' + error.message);

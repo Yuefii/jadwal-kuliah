@@ -36,7 +36,7 @@ model Jurusan {
 
 model Semester {
   id          Int           @id @default(autoincrement())
-  semester    String
+  semester_ke String        @unique
   mata_kuliah Mata_Kuliah[]
   mahasiswa   Mahasiswa[]
 }
