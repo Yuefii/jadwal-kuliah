@@ -25,6 +25,7 @@ model Mata_Kuliah {
   jurusan     Jurusan[]
   semester    Semester[]
   dosen       Dosen[]
+  jadwal      Jadwal[]
 }
 
 model Jurusan {
@@ -32,6 +33,7 @@ model Jurusan {
   nama_jurusan String        @unique
   mata_kuliah  Mata_Kuliah[]
   mahasiswa    Mahasiswa[]
+  jadwal       Jadwal[]
 }
 
 model Semester {
@@ -39,12 +41,34 @@ model Semester {
   semester_ke String        @unique
   mata_kuliah Mata_Kuliah[]
   mahasiswa   Mahasiswa[]
+  jadwal      Jadwal[]
 }
 
 model Dosen {
   id          Int           @id @default(autoincrement())
   nama_dosen  String
   mata_kuliah Mata_Kuliah[]
+  jadwal      Jadwal[]
+}
+
+model TahunAkademik {
+  id       Int      @id @default(autoincrement())
+  tahun    String
+  semester String
+  jadwal   Jadwal[]
+}
+
+model Jadwal {
+  id             Int             @id @default(autoincrement())
+  tahun_akademik TahunAkademik[]
+  jurusan        Jurusan[]
+  semester       Semester[]
+  kelas          String
+  hari           String
+  mata_kuliah    Mata_Kuliah[]
+  jam            String
+  dosen          Dosen[]
+  ruangan        String
 }
 
 // if change model dont reset database, u can use @default()
