@@ -1,7 +1,7 @@
 import Image from "next/image";
 import DescProfile from "./descProfile";
 
-const Avatar = () => {
+const Avatar = ({children}) => {
   return (
     <main>
       <Image
@@ -14,7 +14,7 @@ const Avatar = () => {
       <div className="relative">
         <div className="flex justify-center py-14">
           <Image
-            className="w-1/3 "
+            className="w-1/3"
             src="/avatarProfile.png"
             width={120}
             height={120}
@@ -26,7 +26,7 @@ const Avatar = () => {
             Edit Profile
           </button>
         </div>
-        <DescProfile />
+        {children}
       </div>
     </main>
   );
