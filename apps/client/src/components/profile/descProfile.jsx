@@ -1,22 +1,34 @@
 const DescProfile = () => {
   return (
     <main>
-      <div className="border-2 border-blue-500 mx-5 mt-10 rounded-xl h-80">
-        <div className="flex justify-center items-center text-blue-500">
-          <h1 className="font-semibold text-xl">Quotes</h1>
+      <h1 className="text-center -mb-6 mt-5 font-bold text-blue-800">BIODATA</h1>
+      <div className="border-2 border-blue-500 mx-5 mt-10 rounded-xl h-auto">
+        <div className="p-5 text-blue-800 font-semibold">
+          <div className="mb-3">
+            <p>NPM:</p>
+            <p className="p-2 border-2 border-blue-500 rounded-xl">
+              20202020020202
+            </p>
+          </div>
+          <div className="mb-3">
+            <p>Nama Lengkap:</p>
+            <p className="p-2 border-2 border-blue-500 rounded-xl">
+              User gelap ketakutan
+            </p>
+          </div>
+          <div className="mb-3">
+            <p>Program Studi:</p>
+            <p className="p-2 border-2 border-blue-500 rounded-xl">
+              Teknologi Informasi
+            </p>
+          </div>
+          <div className="mb-3 flex gap-3 items-center">
+            <p>Semester:</p>
+            <p className="w-full text-center p-2 border-2 border-blue-500 rounded-xl">
+              2
+            </p>
+          </div>
         </div>
-        <p className="font-serif text-blue-500 text-center p-3">
-          tidak ada yang lebih jago, tapi siapa yang mulai duluan dialah
-          pemenangnya.
-        </p>
-        <div className="border-2 border-b border-blue-500 mt-12"></div>
-        <ul className="p-5 text-blue-500 font-semibold">
-          <li>NPM: 2023806000</li>
-          <li>Nama Lengkap: Users Gelap</li>
-          <li>Tanggal Lahir: 20 Oktober 2007</li>
-          <li>Program Studi: Teknologi Informasi</li>
-          <li>Semester: 1</li>
-        </ul>
       </div>
     </main>
   );
