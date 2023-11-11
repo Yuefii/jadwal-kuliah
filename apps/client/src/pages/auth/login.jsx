@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3001/login", {
+      const response = await axios.post("http://localhost:3001/auth/login", {
         npm,
         password,
       });
@@ -21,7 +21,7 @@ const Login = () => {
       localStorage.setItem("token", token);
       console.log(token)
       console.log("Login successful");
-      router.push("/");
+      router.push("/views/profile");
       setIsAuthenticated(true);
     } catch (error) {
       console.error("Login failed", error);

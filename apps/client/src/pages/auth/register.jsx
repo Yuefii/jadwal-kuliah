@@ -23,7 +23,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3001/register", {
+      const response = await axios.post("http://localhost:3001/auth/register", {
         nama_lengkap,
         jurusan,
         semesters,
