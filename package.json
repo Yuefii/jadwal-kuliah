@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "client:install": "cd apps/client && npm install",
-    "server:install": "cd apps/client && npm install",
+    "client:install": "cd apps/client && yarn install",
+    "server:install": "cd apps/server && yarn install",
+    "mobile:install": "cd apps/mobile && yarn install",
     "dev:client": "cd apps/client && npx next dev",
     "dev:mobile": "cd apps/mobile && npx expo start --clear",
-    "dev:server": "cd apps/server && npm run dev",
+    "dev:server": "cd apps/server && yarn run dev",
     "docker": "cd apps/server && docker-compose up -d",
     "docker-stop": "cd apps/server && docker-compose down",
     "db:push": "cd apps/server && npx prisma db push",
@@ -16,5 +17,9 @@
   },
   "workspaces": [
     "apps/*"
-  ]
+  ],
+  "main": "index.js",
+  "repository": "https://github.com/Yuefii/jadwal-kuliah.git",
+  "author": "Yuefii",
+  "private": true
 }
