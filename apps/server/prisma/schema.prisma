@@ -11,44 +11,40 @@ datasource db {
 }
 
 model Mahasiswa {
-  npm          String     @id @unique
+  npm          String   @id @unique
   nama_lengkap String
-  jurusan      Jurusan[]
-  semester     Semester[]
+  jurusan      Jurusan  @relation(fields: [jurusanId], references: [id])
+  jurusanId    Int      @default(0)
+  semester     Semester @relation(fields: [smtId], references: [id])
+  smtId        Int      @default(0)
   password     String
 }
 
 model Mata_Kuliah {
-  id          Int        @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   nama_matkul String
   sks         Int
-  jurusan     Jurusan[]
-  semester    Semester[]
-  dosen       Dosen[]
   jadwal      Jadwal[]
 }
 
 model Jurusan {
-  id           Int           @id @default(autoincrement())
-  nama_jurusan String        @unique
-  mata_kuliah  Mata_Kuliah[]
+  id           Int         @id @default(autoincrement())
+  nama_jurusan String      @unique
   mahasiswa    Mahasiswa[]
   jadwal       Jadwal[]
 }
 
 model Semester {
-  id          Int           @id @default(autoincrement())
-  semester_ke String        @unique
-  mata_kuliah Mata_Kuliah[]
+  id          Int         @id @default(autoincrement())
+  semester_ke String      @unique
   mahasiswa   Mahasiswa[]
   jadwal      Jadwal[]
 }
 
 model Dosen {
-  id          Int           @id @default(autoincrement())
-  nama_dosen  String
-  mata_kuliah Mata_Kuliah[]
-  jadwal      Jadwal[]
+  id         Int      @id @default(autoincrement())
+  nama_dosen String
+  jadwal     Jadwal[]
 }
 
 model TahunAkademik {
@@ -58,17 +54,50 @@ model TahunAkademik {
   jadwal   Jadwal[]
 }
 
+model Kelas {
+  id         Int      @id @default(autoincrement())
+  nama_kelas String
+  jadwal     Jadwal[]
+}
+
+model Ruangan {
+  id           Int      @id @default(autoincrement())
+  nama_ruangan String
+  jadwal       Jadwal[]
+}
+
+model Waktu {
+  id     Int      @id @default(autoincrement())
+  jam    String
+  jadwal Jadwal[]
+}
+
+model Hari {
+  id        Int      @id @default(autoincrement())
+  nama_hari String
+  jadwal    Jadwal[]
+}
+
 model Jadwal {
-  id             Int             @id @default(autoincrement())
-  tahun_akademik TahunAkademik[]
-  jurusan        Jurusan[]
-  semester       Semester[]
-  kelas          String
-  hari           String
-  mata_kuliah    Mata_Kuliah[]
-  jam            String
-  dosen          Dosen[]
-  ruangan        String
+  id             Int           @id @default(autoincrement())
+  tahun_akademik TahunAkademik @relation(fields: [thn_akademikId], references: [id])
+  thn_akademikId Int
+  jurusan        Jurusan       @relation(fields: [jurusanId], references: [id])
+  jurusanId      Int
+  semester       Semester      @relation(fields: [smtId], references: [id])
+  smtId          Int
+  kelas          Kelas         @relation(fields: [kelasId], references: [id])
+  kelasId        Int
+  hari           Hari          @relation(fields: [hariId], references: [id])
+  hariId         Int
+  mata_kuliah    Mata_Kuliah   @relation(fields: [matkulId], references: [id])
+  matkulId       Int
+  waktu          Waktu         @relation(fields: [waktuId], references: [id])
+  waktuId        Int
+  dosen          Dosen         @relation(fields: [dosenId], references: [id])
+  dosenId        Int
+  ruangan        Ruangan       @relation(fields: [ruanganId], references: [id])
+  ruanganId      Int
 }
 
 // if change model dont reset database, u can use @default()

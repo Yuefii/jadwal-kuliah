@@ -73,18 +73,12 @@ const profileUser = async (req, res) => {
     where: {
       npm: userData.npm,
     },
-    select: {
-      npm: true,
-      nama_lengkap: true,
-      semester: {
-        select: {
-          semester_ke: true,
-        },
-      },
+    include: {
       jurusan: {
-        select: {
-          nama_jurusan: true,
-        },
+        select: { nama_jurusan: true },
+      },
+      semester: {
+        select: { semester_ke: true },
       },
     },
   });
@@ -99,8 +93,8 @@ const profileUser = async (req, res) => {
     data: {
       npm: user.npm,
       nama_lengkap: user.nama_lengkap,
-      semester: user.semester.map((s) => s.semester_ke),
-      jurusan: user.jurusan.map((j) => j.nama_jurusan),
+      semester: user.semester,
+      jurusan: user.jurusan,
     },
   });
 };

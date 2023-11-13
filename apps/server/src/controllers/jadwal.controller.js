@@ -1,14 +1,15 @@
-const { getJadwal } = require("../services/jadwal.service");
+const { getJadwalByQuery } = require("../services/jadwal.service");
 
-const getJadwalByParams = async (req, res) => {
-  const { tahun, jurusan, semester, kelas } = req.params;
+const jadwalController = async (req, res) => {
   try {
-    const jadwal = await getJadwal(tahun, jurusan, semester, kelas);
+    const jadwal = await getJadwalByQuery(req.query);
     res.json(jadwal);
   } catch (error) {
-    console.error("Error fetching data:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error(error);
+    res
+      .status(500)
+      .json({ error: "Terjadi kesalahan saat mengambil data Jadwal." });
   }
 };
 
-module.exports = { getJadwalByParams };
+module.exports = { jadwalController };

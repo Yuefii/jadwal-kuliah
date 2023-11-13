@@ -31,6 +31,8 @@ const handleLogin = async (req, res) => {
       data: {
         npm: user.npm,
         nama_lengkap: user.nama_lengkap,
+        jurusan: user.jurusanId,
+        semester: user.smtId,
       },
       token,
     });

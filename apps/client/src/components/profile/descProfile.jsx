@@ -40,26 +40,26 @@ const DescProfile = () => {
         <div className="p-5 text-blue-800 font-semibold">
           <div className="mb-3">
             <p>NPM:</p>
-            <p className="p-2 border-2 border-blue-500 rounded-xl">
-            {userData.data.npm}
+            <p className="p-2 border border-blue-500 rounded-xl">
+            {userData.data && userData.data.npm}
             </p>
           </div>
           <div className="mb-3">
             <p>Nama Lengkap:</p>
-            <p className="p-2 border-2 border-blue-500 rounded-xl">
-            {userData.data.nama_lengkap}
+            <p className="p-2 border border-blue-500 rounded-xl">
+            {userData.data && userData.data.nama_lengkap}
             </p>
           </div>
           <div className="mb-3">
             <p>Program Studi:</p>
-            <p className="p-2 border-2 border-blue-500 rounded-xl">
-            {userData.data.jurusan[0]}
+            <p className="p-2 border border-blue-500 rounded-xl">
+            {userData.data && userData.data.jurusan.nama_jurusan}
             </p>
           </div>
           <div className="mb-3 flex gap-4 items-center">
             <p>Semester:</p>
-            <p className="p-2 border-2 border-blue-500 rounded-xl w-full text-center">
-            {userData.data.semester[0]}
+            <p className="p-2 border border-blue-500 rounded-xl w-full text-center">
+            {userData.data && userData.data.semester.semester_ke}
             </p>
           </div>
         </div>

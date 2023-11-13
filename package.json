@@ -13,7 +13,8 @@
     "docker-stop": "cd apps/server && docker-compose down",
     "db:push": "cd apps/server && npx prisma db push",
     "db:migrate": "cd apps/server && npx prisma migrate dev",
-    "db:studio": "cd apps/server && npx prisma studio"
+    "db:studio": "cd apps/server && npx prisma studio",
+    "db:generate": "cd apps/server && npx prisma generate"
   },
   "workspaces": [
     "apps/*"
