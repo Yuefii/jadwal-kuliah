@@ -1,16 +1,16 @@
 import Image from "next/image";
-import { BellRinging, BellSlash } from "@phosphor-icons/react";
+// import { BellRinging, BellSlash } from "@phosphor-icons/react";
 import Link from "next/link";
-import { useState } from "react";
+// import { useState } from "react";
 import { getFormattedDate } from "@/utils/formatedDay";
 
-const Header = () => {
-  const hariIni = getFormattedDate()
+const Header = ({ userData }) => {
+  const hariIni = getFormattedDate();
 
-  const [isClicked, setIsClicked] = useState(false);
-  const handleClick = () => {
-    setIsClicked(!isClicked);
-  };
+  // const [isClicked, setIsClicked] = useState(false);
+  // const handleClick = () => {
+  //   setIsClicked(!isClicked);
+  // };
 
   return (
     <main>
@@ -33,23 +33,26 @@ const Header = () => {
                 alt="avatar"
               />
             </div>
-            <div className="mt-3 text-white font-semibold">
-              <h1>Hallo, Users</h1>
-              <h1>Teknologi Informasi 2</h1>
+            <div className="mt-4 text-white font-semibold text-sm">
+              <h1>{userData.data && userData.data.nama_lengkap}</h1>
+              <h1>
+                {userData.data && userData.data.jurusan.nama_jurusan}{" "}
+                {userData.data && userData.data.semester.semester_ke}
+              </h1>
             </div>
           </div>
-          <div className="m-3 text-white cursor-pointer" onClick={handleClick}>
+          {/* <div className="m-3 text-white cursor-pointer" onClick={handleClick}>
             {isClicked ? <BellRinging size={32} /> : <BellSlash size={32} />}
-          </div>
+          </div> */}
         </div>
         <div className="flex justify-between mx-auto">
-          <div className="text-white font-semibold mx-4 my-6 md:ml-20">
-            <h1 className="text-lg md:text-2xl">Jadwal Hari Ini</h1>
+          <div className="text-white mx-4 my-6 md:ml-20">
+            <h1 className="text-sm font-semibold md:text-2xl">Jadwal Hari Ini</h1>
             <h1 className="text-xs">{hariIni}</h1>
           </div>
           <div>
             <Link href="/views/comingSoon">
-              <button className="text-xs text-white font-semibold shadow-sm bg-blue-500 py-2 px-4 my-8 mx-8 sm:mx-28 md:mx-36 md:text-sm rounded-xl hover:bg-blue-800">
+              <button className="text-xs text-white font-semibold shadow-sm bg-blue-500 py-2 px-4 my-8 mx-8 sm:mx-28 md:mx-36 md:text-sm rounded-lg hover:bg-blue-800">
                 Lihat Jadwal
               </button>
             </Link>

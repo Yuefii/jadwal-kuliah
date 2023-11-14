@@ -1,5 +1,5 @@
 import Image from "next/image";
-const Header = () => {
+const Header = ({userData}) => {
   return (
     <main>
       <Image
@@ -12,8 +12,8 @@ const Header = () => {
       <div className="relative">
         <div className="flex justify-between mx-auto -mt-4">
           <div className="text-white font-semibold mx-4 my-10 md:ml-20">
-            <h1 className="text-xl md:text-2xl">Teknologi Informasi</h1>
-            <h1 className="text-sm">Semester 2</h1>
+            <h1 className="text-xl md:text-2xl">{userData.data && userData.data.jurusan.nama_jurusan}</h1>
+            <h1 className="text-sm">Semester {userData.data && userData.data.semester.semester_ke}</h1>
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@ const Avatar = ({children}) => {
           />
         </div>
         <div className="flex justify-center items-center -mt-10">
-          <button className="bg-blue-500 py-2 px-4 rounded-xl text-xs text-white font-semibold hover:bg-blue-800">
+          <button className="bg-blue-500 py-2 px-4 rounded-lg text-xs text-white font-semibold hover:bg-blue-800">
             Edit Profile
           </button>
         </div>

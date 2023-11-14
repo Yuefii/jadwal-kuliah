@@ -34,10 +34,10 @@ const Navbar = () => {
               <House size={30} />
             </li>
           </Link>
-          <Link href="/views/comingSoon">
+          <Link href="/views/profile">
             <li
               className={`flex flex-col justify-center items-center ${isLinkActive(
-                "/views/comingSoon"
+                "/views/profile"
               )}`}
             >
               <User size={30} />
