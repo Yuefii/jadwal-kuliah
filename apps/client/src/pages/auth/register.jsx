@@ -12,6 +12,7 @@ const Register = () => {
   const [semesters, setSemesters] = useState("");
   const [npm, setNpm] = useState("");
   const [password, setPassword] = useState("");
+  const apikey = process.env.NEXT_PUBLIC_API_URL
 
   const handleSelectChangeJurusan = (event) => {
     setJurusan(event.target.value);
@@ -25,7 +26,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3001/auth/register", {
+      const response = await axios.post(apikey + "/auth/register", {
         nama_lengkap,
         jurusan,
         semesters,

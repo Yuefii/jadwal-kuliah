@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 const Jadwal = () => {
   const [userData, setUserData] = useState({});
   const router = useRouter();
+  const apikey = process.env.NEXT_PUBLIC_API_URL
 
 
   useEffect(() => {
@@ -21,7 +22,7 @@ const Jadwal = () => {
       }
 
       try {
-        const response = await axios.get('http://localhost:3001/api/V1/user-profile', {
+        const response = await axios.get(apikey + '/api/V1/user-profile', {
           headers: {
             Authorization: `Bearer ${token}`
           }

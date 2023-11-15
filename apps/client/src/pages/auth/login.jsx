@@ -10,12 +10,13 @@ const Login = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [npm, setNpm] = useState("");
   const [password, setPassword] = useState("");
+  const apikey = process.env.NEXT_PUBLIC_API_URL
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3001/auth/login", {
+      const response = await axios.post(apikey + "/auth/login", {
         npm,
         password,
       });

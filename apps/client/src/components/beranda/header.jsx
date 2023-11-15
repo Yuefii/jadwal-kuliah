@@ -77,7 +77,7 @@ const Header = ({ userData }) => {
             <h1 className="text-xs">{hariIni}</h1>
           </div>
           <div>
-            <Link href="/views/comingSoon">
+            <Link href="/views/jadwal">
               <button className="text-xs text-white font-semibold shadow-sm bg-blue-500 py-2 px-4 my-8 mx-8 sm:mx-28 md:mx-36 md:text-sm rounded-lg hover:bg-blue-800">
                 Lihat Jadwal
               </button>

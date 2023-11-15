@@ -12,6 +12,8 @@ const Beranda = () => {
   const [userData, setUserData] = useState({});
   const router = useRouter();
 
+  const apikey = process.env.NEXT_PUBLIC_API_URL
+
   useEffect(() => {
     const fetchData = async () => {
       const token = localStorage.getItem("token");
@@ -23,7 +25,7 @@ const Beranda = () => {
       }
 
       try {
-        const response = await axios.get('http://localhost:3001/api/V1/user-profile', {
+        const response = await axios.get( apikey + '/api/V1/user-profile', {
           headers: {
             Authorization: `Bearer ${token}`
           }

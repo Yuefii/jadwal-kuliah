@@ -5,13 +5,14 @@ import axios from "axios";
 const ListHari = ({ userData }) => {
   const [jadwal, setJadwal] = useState([]);
   const [kelasTerpilih, setKelasTerpilih] = useState("Pagi");
+  const apikey = process.env.NEXT_PUBLIC_API_URL
 
   useEffect(() => {
     if (userData && userData.data) {
       const fetchDataJadwal = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:3001/api/V1/jadwal?tahun=2023&jurusan=${userData.data.jurusan.nama_jurusan}&semester=${userData.data.semester.semester_ke}&kelas=${kelasTerpilih}`
+            apikey + `/api/V1/jadwal?tahun=2023&jurusan=${userData.data.jurusan.nama_jurusan}&semester=${userData.data.semester.semester_ke}&kelas=${kelasTerpilih}`
           );
           setJadwal(response.data);
           console.log(response);

@@ -7,13 +7,14 @@ import { useEffect, useState } from 'react';
 const MatkulPagi = ({userData}) => {
   const [jadwal, setJadwal] = useState([]);
   const [hariIniJadwal, setHariIniJadwal] = useState([]);
-
+  const apikey = process.env.NEXT_PUBLIC_API_URL
+  
   useEffect(() => {
     if (userData && userData.data) {
       const fetchDataJadwal = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:3001/api/V1/jadwal?tahun=2023&jurusan=${userData.data.jurusan.nama_jurusan}&semester=${userData.data.semester.semester_ke}&kelas=Pagi`
+            apikey + `/api/V1/jadwal?tahun=2023&jurusan=${userData.data.jurusan.nama_jurusan}&semester=${userData.data.semester.semester_ke}&kelas=Pagi`
           );
 
           setJadwal(response.data);
