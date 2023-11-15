@@ -1,8 +1,10 @@
 import axios from "axios";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const DescProfile = () => {
   const [userData, setUserData] = useState({});
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -10,6 +12,7 @@ const DescProfile = () => {
 
       if (!token) {
         console.error("Token tidak tersedia di localStorage.");
+        redirectLogin();
         return;
       }
 
@@ -34,6 +37,10 @@ const DescProfile = () => {
     };
     fetchData();
   }, []);
+
+  const redirectLogin = () => {
+    router.push('/auth/login');
+  };
 
   return (
     <main>

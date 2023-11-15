@@ -6,9 +6,11 @@ import HeadMalam from "@/components/headMalam";
 import MatkulMalam from "@/components/beranda/matkulMalam";
 import axios from "axios";
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 const Beranda = () => {
   const [userData, setUserData] = useState({});
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,6 +18,7 @@ const Beranda = () => {
 
       if (!token) {
         console.error("Token tidak tersedia di localStorage.");
+        redirectLogin();
         return;
       }
 
@@ -38,6 +41,10 @@ const Beranda = () => {
 
     fetchData();
   }, []);
+
+  const redirectLogin = () => {
+    router.push('/auth/login');
+  };
 
   return (
     <main>

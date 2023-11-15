@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "client:install": "cd apps/client && yarn install",
-    "server:install": "cd apps/server && yarn install",
-    "mobile:install": "cd apps/mobile && yarn install",
+    "client:install": "cd apps/client && yarn add",
+    "server:install": "cd apps/server && yarn add",
+    "mobile:install": "cd apps/mobile && yarn add",
     "dev:client": "cd apps/client && npx next dev",
     "dev:mobile": "cd apps/mobile && npx expo start --clear",
     "dev:server": "cd apps/server && yarn run dev",

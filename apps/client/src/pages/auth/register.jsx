@@ -2,6 +2,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
+import Link from "next/link";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const router = useRouter();
@@ -31,9 +33,22 @@ const Register = () => {
         password,
       });
       console.log(response);
+      Swal.fire({
+        icon: "success",
+        title: "Pendaftaran kamu berhasil",
+        text: "Silahkan Masuk!",
+        showConfirmButton: false,
+        timer: 2000,
+      });
       router.push("/auth/login");
     } catch (error) {
       console.error("Registration failed:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Pendaftaran Gagal",
+        text: "Masukan data yang benar!",
+        confirmButtonText: "OK",
+      });
     }
   };
 
@@ -46,22 +61,23 @@ const Register = () => {
         height={350}
         alt="wave"
       />
-      <form className="relative py-40">
-        <div className="mx-10">
-          <div className="my-2 flex flex-col justify-center text-blue-800">
+      <h1 className="relative font-semibold text-white text-4xl py-16 px-5">Daftar</h1>
+      <form className="relative">
+        <div className="mx-5 border-2 border-blue-500 p-2 rounded-xl text-sm">
+          <div className="my-2 mx-3 flex flex-col justify-center text-blue-800">
             <label className="p-2 font-semibold">Nama Lengkap</label>
             <input
-              className="border-2 border-blue-500 rounded-xl p-2"
+              className="border border-blue-500 rounded-xl p-1.5"
               type="text"
               value={nama_lengkap}
               onChange={(e) => setNama_lengkap(e.target.value)}
               required
             />
           </div>
-          <div className="my-2 flex flex-col justify-center text-blue-800">
+          <div className="my-2 mx-3 flex flex-col justify-center text-blue-800">
             <label className="p-2 font-semibold">Program Studi</label>
             <select
-              className="border-2 border-blue-500 rounded-xl p-2"
+              className="border border-blue-500 rounded-xl p-1.5"
               value={jurusan}
               onChange={handleSelectChangeJurusan}
             >
@@ -74,10 +90,10 @@ const Register = () => {
             </select>
             {jurusan && <p>Anda memilih: {jurusan}</p>}
           </div>
-          <div className="my-2 flex flex-col justify-center text-blue-800">
+          <div className="my-2 mx-3 flex flex-col justify-center text-blue-800">
             <label className="p-2 font-semibold">Semester</label>
             <select
-              className="border-2 border-blue-500 rounded-xl p-2"
+              className="border border-blue-500 rounded-xl p-1.5"
               value={semesters}
               onChange={handleSelectChangeSemesters}
             >
@@ -92,33 +108,36 @@ const Register = () => {
             </select>
             {semesters && <p>Anda memilih: {semesters}</p>}
           </div>
-          <div className="my-2 flex flex-col justify-center text-blue-800">
+          <div className="my-2 mx-3 flex flex-col justify-center text-blue-800">
             <label className="p-2 font-semibold">NPM</label>
             <input
-              className="border-2 border-blue-500 rounded-xl p-2"
+              className="border border-blue-500 rounded-xl p-1.5"
               type="number"
               value={npm}
               onChange={(e) => setNpm(e.target.value)}
               required
             />
           </div>
-          <div className="my-2 flex flex-col justify-center text-blue-800">
+          <div className="my-2 mx-3 flex flex-col justify-center text-blue-800">
             <label className="p-2 font-semibold">Kata Sandi</label>
             <input
-              className="border-2 border-blue-500 rounded-xl p-2"
+              className="border border-blue-500 rounded-xl p-1.5"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
+          <div className="mx-3">
           <button
             type="submit"
             onClick={handleRegister}
-            className="bg-blue-500 w-full rounded-xl p-2 text-white font-semibold my-3"
+            className="bg-blue-500 w-full rounded-xl p-1.5 text-white font-semibold my-3"
           >
-            Daftar
+            selanjutnya...
           </button>
+          </div>
+          <p className="mx-3 mb-5 text-sm text-blue-800">Sudah punya akun? <Link href="/auth/login" className="text-blue-500 hover:text-blue-800 hover:underline font">Masuk</Link></p>
         </div>
       </form>
     </main>

@@ -1,11 +1,13 @@
 import Header from "@/components/jadwal/header";
 import ListHari from "@/components/jadwal/listHari";
+import { useRouter } from 'next/router';
 
 import axios from "axios";
 import { useEffect, useState } from 'react';
 
 const Jadwal = () => {
   const [userData, setUserData] = useState({});
+  const router = useRouter();
 
 
   useEffect(() => {
@@ -14,6 +16,7 @@ const Jadwal = () => {
 
       if (!token) {
         console.error("Token tidak tersedia di localStorage.");
+        redirectLogin();
         return;
       }
 
@@ -36,6 +39,10 @@ const Jadwal = () => {
 
     fetchData();
   }, []);
+
+  const redirectLogin = () => {
+    router.push('/auth/login');
+  };
 
   return (
     <main>

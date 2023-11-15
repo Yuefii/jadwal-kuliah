@@ -1,16 +1,35 @@
 import Image from "next/image";
-// import { BellRinging, BellSlash } from "@phosphor-icons/react";
+import { SignOut } from "@phosphor-icons/react";
 import Link from "next/link";
-// import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getFormattedDate } from "@/utils/formatedDay";
+import { useRouter } from "next/router";
+import Swal from "sweetalert2";
 
 const Header = ({ userData }) => {
   const hariIni = getFormattedDate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const router = useRouter();
 
-  // const [isClicked, setIsClicked] = useState(false);
-  // const handleClick = () => {
-  //   setIsClicked(!isClicked);
-  // };
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+    Swal.fire({
+      icon: "success",
+      title: "Kamu Telah Berhasil Keluar",
+      text: "Silahkan login kembali!",
+      showConfirmButton: false,
+      timer: 2000,
+    });
+    router.push("/auth/login");
+  };
 
   return (
     <main>
@@ -41,13 +60,20 @@ const Header = ({ userData }) => {
               </h1>
             </div>
           </div>
-          {/* <div className="m-3 text-white cursor-pointer" onClick={handleClick}>
-            {isClicked ? <BellRinging size={32} /> : <BellSlash size={32} />}
-          </div> */}
+          {isLoggedIn ? (
+            <div
+              className="m-3 text-black cursor-pointer bg-white rounded-full p-2"
+              onClick={handleLogout}
+            >
+              <SignOut size={18} />
+            </div>
+          ) : null}
         </div>
         <div className="flex justify-between mx-auto">
           <div className="text-white mx-4 my-6 md:ml-20">
-            <h1 className="text-sm font-semibold md:text-2xl">Jadwal Hari Ini</h1>
+            <h1 className="text-sm font-semibold md:text-2xl">
+              Jadwal Hari Ini
+            </h1>
             <h1 className="text-xs">{hariIni}</h1>
           </div>
           <div>
