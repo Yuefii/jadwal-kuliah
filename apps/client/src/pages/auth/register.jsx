@@ -100,12 +100,21 @@ const Register = () => {
             >
               <option value="">Pilih...</option>
               <option value="1">1</option>
+              <option value="1A">1A</option>
+              <option value="1B">1B</option>
               <option value="2">2</option>
               <option value="3">3</option>
+              <option value="3A">3A</option>
+              <option value="3B">3B</option>
               <option value="4">4</option>
               <option value="5">5</option>
+              <option value="5A">5A</option>
+              <option value="5B">5B</option>
               <option value="6">6</option>
               <option value="7">7</option>
+              <option value="7A">7A</option>
+              <option value="7B">7B</option>
+              <option value="8">8</option>
             </select>
             {semesters && <p>Anda memilih: {semesters}</p>}
           </div>

@@ -19,16 +19,29 @@ const Header = ({ userData }) => {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    setIsLoggedIn(false);
     Swal.fire({
-      icon: "success",
-      title: "Kamu Telah Berhasil Keluar",
-      text: "Silahkan login kembali!",
-      showConfirmButton: false,
-      timer: 2000,
+      title: 'Konfirmasi',
+      text: 'Apakah Anda yakin ingin keluar?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Ya, Keluar',
+      cancelButtonText: 'Batal'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem('token');
+        setIsLoggedIn(false);
+        Swal.fire({
+          icon: 'success',
+          title: 'Kamu Telah Berhasil Keluar',
+          text: 'Silahkan login kembali!',
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        router.push('/auth/login');
+      }
     });
-    router.push("/auth/login");
   };
 
   return (

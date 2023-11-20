@@ -1,4 +1,4 @@
-const { registerUser, loginUser } = require("../services/auth.service");
+const { registerUser, loginUser, updateProfile } = require("../services/auth.service");
 const jwt = require("jsonwebtoken");
 
 const secretKey = process.env.SECRET_KEY;
@@ -41,4 +41,17 @@ const handleLogin = async (req, res) => {
   }
 };
 
-module.exports = { handleRegistration, handleLogin };
+const handleProfileUpdate = async (req, res) => {
+  const { npm } = req.userData;
+  const newData = req.body;
+
+  try {
+    const updatedUser = await updateProfile(npm, newData);
+    const updatedUserWithoutPassword = { ...updatedUser, password: undefined };
+    res.json(updatedUserWithoutPassword);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+module.exports = { handleRegistration, handleLogin, handleProfileUpdate };

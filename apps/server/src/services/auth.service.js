@@ -99,4 +99,69 @@ const profileUser = async (req, res) => {
   });
 };
 
-module.exports = { registerUser, loginUser, profileUser };
+const updateProfile = async (npm, newData) => {
+  try {
+    const { nama_lengkap, jurusanNama, semesterKe} = newData;
+    
+    const user = await prisma.mahasiswa.findUnique({
+      where: {
+        npm,
+      },
+    });
+
+    if (!user) {
+      throw new Error("User not found");
+    }
+
+    const updatedUserData = {};
+
+    if (nama_lengkap) {
+      updatedUserData.nama_lengkap = nama_lengkap;
+    }
+
+    if (jurusanNama) {
+      const jurusan = await prisma.jurusan.findUnique({
+        where: {
+          nama_jurusan: jurusanNama,
+        },
+      });
+
+      if (!jurusan) {
+        throw new Error("Jurusan tidak ditemukan");
+      }
+
+      updatedUserData.jurusan = {
+        connect: { id: jurusan.id },
+      };
+    }
+
+    if (semesterKe) {
+      const semesters = await prisma.semester.findUnique({
+        where: {
+          semester_ke: semesterKe,
+        },
+      });
+
+      if (!semesters) {
+        throw new Error("Semester tidak ditemukan");
+      }
+
+      updatedUserData.semester = {
+        connect: { id: semesters.id },
+      };
+    }
+
+    const updatedUser = await prisma.mahasiswa.update({
+      where: {
+        npm,
+      },
+      data: updatedUserData,
+    });
+
+    return updatedUser;
+  } catch (error) {
+    throw new Error("Update failed: " + error.message);
+  }
+};
+
+module.exports = { registerUser, loginUser, profileUser, updateProfile };
