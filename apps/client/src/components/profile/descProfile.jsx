@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 const DescProfile = () => {
   const [userData, setUserData] = useState({});
   const router = useRouter();
+  const apikey = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,14 +18,11 @@ const DescProfile = () => {
       }
 
       try {
-        const response = await axios.get(
-          "http://localhost:3001/api/V1/user-profile",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const response = await axios.get(apikey + "/api/V1/user-profile", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
         if (response.status === 200) {
           setUserData(response.data);
@@ -39,7 +37,7 @@ const DescProfile = () => {
   }, []);
 
   const redirectLogin = () => {
-    router.push('/auth/login');
+    router.push("/auth/login");
   };
 
   return (
@@ -78,7 +76,7 @@ const DescProfile = () => {
             </div>
           </div>
         </div>
-            <div className="mb-5"></div>
+        <div className="mb-5"></div>
       </div>
     </main>
   );
