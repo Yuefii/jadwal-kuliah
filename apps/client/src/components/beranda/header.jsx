@@ -5,11 +5,13 @@ import { useState, useEffect } from "react";
 import { getFormattedDate } from "@/utils/formatedDay";
 import { useRouter } from "next/router";
 import Swal from "sweetalert2";
+import useUserData from "@/lib/axios.userData";
 
-const Header = ({ userData }) => {
+const Header = () => {
   const hariIni = getFormattedDate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const router = useRouter();
+  const userData = useUserData();
 
   useEffect(() => {
     const token = localStorage.getItem("token");

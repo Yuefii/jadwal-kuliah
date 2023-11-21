@@ -3,11 +3,13 @@ import { getFormattedDay } from '@/utils/formatedDay';
 
 import axios from "axios";
 import { useEffect, useState } from 'react';
+import useUserData from "@/lib/axios.userData";
 
-const MatkulPagi = ({userData}) => {
+const MatkulPagi = () => {
   const [jadwal, setJadwal] = useState([]);
   const [hariIniJadwal, setHariIniJadwal] = useState([]);
   const apikey = process.env.NEXT_PUBLIC_API_URL
+  const userData = useUserData();
   
   useEffect(() => {
     if (userData && userData.data) {

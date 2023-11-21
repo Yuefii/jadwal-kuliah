@@ -1,5 +1,8 @@
 import Image from "next/image";
-const Header = ({userData}) => {
+import useUserData from "@/lib/axios.userData";
+
+const Header = () => {
+  const userData = useUserData();
   return (
     <main>
       <Image

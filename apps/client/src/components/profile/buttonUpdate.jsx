@@ -1,51 +1,10 @@
-import { useState, useEffect } from "react";
 import axios from "axios";
-import { useRouter } from "next/router";
 import Swal from "sweetalert2";
+import useUserData from "@/lib/axios.userData";
 
 const ButtonUpdate = () => {
-  const [userData, setUserData] = useState({
-    nama_lengkap: "",
-    jurusanNama: "",
-    semesterKe: "",
-  });
+  const userData = useUserData();
   const apikey = process.env.NEXT_PUBLIC_API_URL;
-  const router = useRouter();
-
-  const redirectLogin = () => {
-    router.push("/auth/login");
-  };
-
-  const fetchData = async () => {
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-      console.error("Token tidak tersedia di localStorage.");
-      redirectLogin();
-      return;
-    }
-
-    try {
-      const response = await axios.get(apikey + "/api/V1/user-profile", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (response.status === 200) {
-        setUserData(response.data);
-      } else {
-        console.error("Gagal mengambil data pengguna:", response.status);
-      }
-      console.log(response.data);
-    } catch (error) {
-      console.error("Gagal mengambil data pengguna:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   const handleUpdateClick = async () => {
     const { value: formValues } = await Swal.fire({
@@ -102,7 +61,7 @@ const ButtonUpdate = () => {
       try {
         const response = await axios.patch(
           apikey + "/api/V1/update-profile",
-          formValues,
+          { ...userData.data, ...formValues },
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -110,13 +69,13 @@ const ButtonUpdate = () => {
           }
         );
 
-        console.log("Data updated:", response.data);
+        // console.log("Data updated:", response.data);
         Swal.fire({
           icon: "success",
           title: "Update Berhasil!",
           text: "Data pengguna telah diperbarui.",
         }).then(() => {
-          fetchData();
+          // NOT FUNCTION
         });
       } catch (error) {
         console.error("Error updating data:", error);

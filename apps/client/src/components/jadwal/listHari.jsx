@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Book, ChalkboardTeacher, User } from "@phosphor-icons/react";
 import axios from "axios";
+import useUserData from "@/lib/axios.userData";
 
-const ListHari = ({ userData }) => {
+const ListHari = () => {
   const [jadwal, setJadwal] = useState([]);
   const [kelasTerpilih, setKelasTerpilih] = useState("Pagi");
   const apikey = process.env.NEXT_PUBLIC_API_URL
+  const userData = useUserData();
 
   useEffect(() => {
     if (userData && userData.data) {
@@ -15,7 +17,6 @@ const ListHari = ({ userData }) => {
             apikey + `/api/V1/jadwal?tahun=2023&jurusan=${userData.data.jurusan.nama_jurusan}&semester=${userData.data.semester.semester_ke}&kelas=${kelasTerpilih}`
           );
           setJadwal(response.data);
-          console.log(response);
         } catch (error) {
           console.error("Gagal mengambil data dari API:", error);
         }
