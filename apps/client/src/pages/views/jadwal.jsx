@@ -1,5 +1,6 @@
 import Header from "@/components/jadwal/header";
 import ListHari from "@/components/jadwal/listHari";
+import { withAuth } from "@/middlewares/auth";
 
 const Jadwal = () => {
   return (
@@ -9,4 +10,4 @@ const Jadwal = () => {
     </main>
   );
 };
-export default Jadwal;
+export default withAuth(Jadwal);

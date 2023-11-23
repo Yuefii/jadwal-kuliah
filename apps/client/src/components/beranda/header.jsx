@@ -12,6 +12,8 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const router = useRouter();
   const userData = useUserData();
+  const apikey = process.env.NEXT_PUBLIC_API_URL;
+  const imageUrl = userData?.data?.avatar ? `${apikey}/${userData.data.avatar}` : "/avatarProfile.png";
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -22,26 +24,26 @@ const Header = () => {
 
   const handleLogout = () => {
     Swal.fire({
-      title: 'Konfirmasi',
-      text: 'Apakah Anda yakin ingin keluar?',
-      icon: 'warning',
+      title: "Konfirmasi",
+      text: "Apakah Anda yakin ingin keluar?",
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Ya, Keluar',
-      cancelButtonText: 'Batal'
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Ya, Keluar",
+      cancelButtonText: "Batal",
     }).then((result) => {
       if (result.isConfirmed) {
-        localStorage.removeItem('token');
+        localStorage.removeItem("token");
         setIsLoggedIn(false);
         Swal.fire({
-          icon: 'success',
-          title: 'Kamu Telah Berhasil Keluar',
-          text: 'Silahkan login kembali!',
+          icon: "success",
+          title: "Kamu Telah Berhasil Keluar",
+          text: "Silahkan login kembali!",
           showConfirmButton: false,
           timer: 2000,
         });
-        router.push('/auth/login');
+        router.push("/auth/login");
       }
     });
   };
@@ -60,8 +62,8 @@ const Header = () => {
           <div className="flex">
             <div className="mt-3">
               <Image
-                className="mx-3 md:ml-20"
-                src="/avatar.png"
+                className="mx-3 md:ml-20 object-cover rounded-full h-12 w-12 shadow-sm"
+                src={imageUrl}
                 width={50}
                 height={50}
                 alt="avatar"

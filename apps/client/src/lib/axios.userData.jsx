@@ -11,12 +11,6 @@ const useUserData = () => {
     const fetchData = async () => {
       const token = localStorage.getItem("token");
 
-      if (!token) {
-        console.error("Token tidak tersedia di localStorage.");
-        redirectLogin();
-        return;
-      }
-
       try {
         const response = await axios.get(apikey + "/api/V1/user-profile", {
           headers: {
@@ -35,10 +29,6 @@ const useUserData = () => {
     };
     fetchData();
   }, []);
-
-  const redirectLogin = () => {
-    router.push("/auth/login");
-  };
 
   return userData;
 };

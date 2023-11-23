@@ -4,20 +4,21 @@ import BorderDetails from "@/components/borderDetails";
 import MatkulPagi from "@/components/beranda/matkulPagi";
 import HeadMalam from "@/components/headMalam";
 import MatkulMalam from "@/components/beranda/matkulMalam";
+import { withAuth } from "@/middlewares/auth";
 
 const Beranda = () => {
   return (
     <main>
       <div className="relative lg:hidden">
-        <Header  />
+        <Header />
         <HeadPagi>
           <BorderDetails>
-            <MatkulPagi  />
+            <MatkulPagi />
           </BorderDetails>
         </HeadPagi>
         <HeadMalam>
           <BorderDetails>
-            <MatkulMalam  />
+            <MatkulMalam />
           </BorderDetails>
         </HeadMalam>
       </div>
@@ -25,4 +26,4 @@ const Beranda = () => {
   );
 };
 
-export default Beranda;
+export default withAuth(Beranda);

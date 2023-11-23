@@ -18,6 +18,7 @@ model Mahasiswa {
   semester     Semester @relation(fields: [smtId], references: [id])
   smtId        Int      @default(0)
   password     String
+  avatar       String?
 }
 
 model Mata_Kuliah {

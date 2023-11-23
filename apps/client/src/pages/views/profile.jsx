@@ -1,6 +1,7 @@
 import Avatar from "@/components/profile/avatar";
 import ButtonUpdate from "@/components/profile/buttonUpdate";
 import DescProfile from "@/components/profile/descProfile";
+import { withAuth } from "@/middlewares/auth";
 
 const Profile = () => {
   return (
@@ -13,4 +14,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default withAuth(Profile);

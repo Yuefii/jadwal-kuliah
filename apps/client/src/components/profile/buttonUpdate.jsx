@@ -43,6 +43,8 @@ const ButtonUpdate = () => {
         '<option value="Teknologi Informasi">Teknologi Informasi</option>' +
         '<option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>' +
         "</select>" +
+        // INPUT FILE UNTUK AVATAR
+        '<input type="file" id="swal-input-file" class="border border-blue-500 rounded-xl p-1.5">' +
         "</div>" +
         "</div>",
       focusConfirm: false,
@@ -51,6 +53,7 @@ const ButtonUpdate = () => {
           nama_lengkap: document.getElementById("swal-input1").value,
           jurusanNama: document.getElementById("swal-input2").value,
           semesterKe: document.getElementById("swal-input3").value,
+          avatar: document.getElementById("swal-input-file").files[0],
         };
       },
     });
@@ -59,8 +62,22 @@ const ButtonUpdate = () => {
       const token = localStorage.getItem("token");
 
       try {
-        const response = await axios.patch(
-          apikey + "/api/V1/update-profile",
+        const formData = new FormData();
+        formData.append("avatar", formValues.avatar);
+
+        const responseAvatar = await axios.post(
+          `${apikey}/upload-avatar`,
+          formData,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+
+        const responseUpdate = await axios.patch(
+          `${apikey}/api/V1/update-profile`,
           { ...userData.data, ...formValues },
           {
             headers: {
@@ -69,13 +86,12 @@ const ButtonUpdate = () => {
           }
         );
 
-        // console.log("Data updated:", response.data);
         Swal.fire({
           icon: "success",
           title: "Update Berhasil!",
           text: "Data pengguna telah diperbarui.",
         }).then(() => {
-          // NOT FUNCTION
+          window.location.reload();
         });
       } catch (error) {
         console.error("Error updating data:", error);
@@ -91,10 +107,13 @@ const ButtonUpdate = () => {
   return (
     <main>
       <div className="flex justify-center items-center -mt-10">
-          <button onClick={handleUpdateClick} className="bg-blue-500 py-2 px-4 rounded-lg text-xs text-white font-semibold hover:bg-blue-800">
-            Edit Profil
-          </button>
-        </div>
+        <button
+          onClick={handleUpdateClick}
+          className="bg-blue-500 py-2 px-4 rounded-lg text-xs text-white font-semibold hover:bg-blue-800"
+        >
+          Edit Profil
+        </button>
+      </div>
     </main>
   );
 };

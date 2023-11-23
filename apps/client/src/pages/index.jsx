@@ -1,9 +1,12 @@
 import Beranda from "./views/beranda"
+import { withAuth } from "@/middlewares/auth";
 
-export default function Home() {
+function Home() {
   return (
     <main>
       <Beranda/>
     </main>
   )
 }
+
+export default withAuth(Home)

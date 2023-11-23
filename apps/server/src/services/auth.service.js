@@ -95,14 +95,15 @@ const profileUser = async (req, res) => {
       nama_lengkap: user.nama_lengkap,
       semester: user.semester,
       jurusan: user.jurusan,
+      avatar: user.avatar,
     },
   });
 };
 
 const updateProfile = async (npm, newData) => {
   try {
-    const { nama_lengkap, jurusanNama, semesterKe} = newData;
-    
+    const { nama_lengkap, jurusanNama, semesterKe } = newData;
+
     const user = await prisma.mahasiswa.findUnique({
       where: {
         npm,
@@ -164,4 +165,57 @@ const updateProfile = async (npm, newData) => {
   }
 };
 
-module.exports = { registerUser, loginUser, profileUser, updateProfile };
+const uploadAvatar = async (req, res) => {
+  const userData = req.userData;
+
+  if (!req.files || !req.files.avatar) {
+    return res.status(400).json({
+      message: "No file uploaded",
+    });
+  }
+
+  const avatarFile = req.files.avatar;
+
+  try {
+    const avatarFileName = `${Date.now()}_${avatarFile.name}`;
+
+    avatarFile.mv(`public/${avatarFileName}`, async (err) => {
+      if (err) {
+        return res.status(500).json({
+          message: "Failed to upload avatar",
+          error: err.message,
+        });
+      }
+
+      try {
+        const updatedUser = await prisma.mahasiswa.update({
+          where: { npm: userData.npm },
+          data: { avatar: avatarFileName },
+        });
+
+        return res.json({
+          message: "Avatar uploaded successfully",
+          user: updatedUser,
+        });
+      } catch (error) {
+        return res.status(500).json({
+          message: "Failed to update user with avatar",
+          error: error.message,
+        });
+      }
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Failed to handle avatar upload",
+      error: error.message,
+    });
+  }
+};
+
+module.exports = {
+  registerUser,
+  loginUser,
+  profileUser,
+  updateProfile,
+  uploadAvatar,
+};
