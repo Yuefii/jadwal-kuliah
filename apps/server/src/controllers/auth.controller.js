@@ -23,10 +23,7 @@ const handleLogin = async (req, res) => {
   const { npm, password } = req.body;
   try {
     const user = await loginUser(npm, password);
-    const expiresIn = 60 * 60 * 1;
-    const token = jwt.sign({ npm: user.npm }, secretKey, {
-      expiresIn: expiresIn,
-    });
+    const token = jwt.sign({ npm: user.npm }, secretKey);
     res.json({
       data: {
         npm: user.npm,
