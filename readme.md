@@ -1,9 +1,6 @@
 # Jadwal Kuliah
 
-![Deskripsi Gambar](https://media.discordapp.net/attachments/1167606919616274572/1177070337674989628/Screenshot_20231123-091630.png?ex=65712b2d&is=655eb62d&hm=1f03bdae058e374b991404dd907eab331490150efe1be9697bca4a819e4e2287&=&format=webp&width=211&height=468)
-![Deskripsi Gambar](https://media.discordapp.net/attachments/1167606919616274572/1177070337964380260/Screenshot_20231123-091632.png?ex=65712b2d&is=655eb62d&hm=4c865b54d7c1ff82dbfc51040f27b4cc496eaf4c50c9774856295a7eeb179c67&=&format=webp&width=211&height=468)
 ![Deskripsi Gambar](https://media.discordapp.net/attachments/1167606919616274572/1177070338945847296/Screenshot_20231123-091600.png?ex=65712b2d&is=655eb62d&hm=69b50e288f96ea41fc26cd4b94de32cd784ccfd49c0ff9f60226388da724ed64&=&format=webp&width=211&height=468)
-![Deskripsi Gambar](https://media.discordapp.net/attachments/1167606919616274572/1177070338673234021/Screenshot_20231123-091614.png?ex=65712b2d&is=655eb62d&hm=4c60700253ea5695c70fd1f235e2114d77e4025075926204e054320d194a17f6&=&format=webp&width=211&height=468)
 ![Deskripsi Gambar](https://media.discordapp.net/attachments/1167606919616274572/1177070338304131155/Screenshot_20231123-091609.png?ex=65712b2d&is=655eb62d&hm=113eb2dc7c79963595dbfab3b367b7aef99e775eac80c1fce3ba151bd0e61f8a&=&format=webp&width=191&height=468)
 ![Deskripsi Gambar](https://media.discordapp.net/attachments/1167606919616274572/1177070337431715892/Screenshot_20231123-091622.png?ex=65712b2d&is=655eb62d&hm=8de5313baebd845e28f89f4a5a4a0ccd6627da579aded3d39f8ba62c121c0cf9&=&format=webp&width=211&height=468)
 
@@ -16,6 +13,7 @@ aplikasi ini bukan untuk public hanya untuk Universitas Insan Pembangunan Indone
 ## Fitur
 
 - **Pendaftaran Pengguna:** Pengguna dapat membuat akun dengan informasi pribadi untuk mengakses jadwal kuliah secara realtime setiap harinya.
+- **Customization Profile Pict:** Pengguna dapat mengganti foto profil sesuai yang dia mau.
 
 ## Instalasi Aplikasi Android
 
@@ -39,3 +37,6 @@ Pastikan Anda memiliki perangkat Android dan izin untuk menginstal aplikasi dari
 
 4. **Selesai!**
    - Setelah instalasi selesai, aplikasi akan muncul di layar utama perangkat Anda dan siap digunakan.
+
+## NEED COLLABORATOR
+    **Butuh Kontribusi untuk menambahkan fitur baru yang lebih kompleks**
