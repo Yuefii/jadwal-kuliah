@@ -39,4 +39,4 @@ Pastikan Anda memiliki perangkat Android dan izin untuk menginstal aplikasi dari
    - Setelah instalasi selesai, aplikasi akan muncul di layar utama perangkat Anda dan siap digunakan.
 
 ## NEED COLLABORATOR
-    **Butuh Kontribusi untuk menambahkan fitur baru yang lebih kompleks**
+    Butuh Kontribusi untuk menambahkan fitur baru yang lebih kompleks
