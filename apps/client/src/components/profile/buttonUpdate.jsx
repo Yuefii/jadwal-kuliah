@@ -60,22 +60,30 @@ const ButtonUpdate = () => {
 
     if (formValues) {
       const token = localStorage.getItem("token");
-
-      try {
-        const formData = new FormData();
+      const formData = new FormData();
+  
+      if (formValues.avatar) {
         formData.append("avatar", formValues.avatar);
-
-        const responseAvatar = await axios.post(
-          `${apikey}/upload-avatar`,
-          formData,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "multipart/form-data",
-            },
-          }
-        );
-
+      }
+  
+      try {
+        if (formValues.avatar) {
+          const responseAvatar = await axios.post(
+            `${apikey}/upload-avatar`,
+            formData,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "multipart/form-data",
+              },
+            }
+          );
+          // Tangani responseAvatar jika diperlukan
+        }
+  
+        // Hapus kunci avatar dari formValues jika nilainya undefined
+        delete formValues.avatar;
+  
         const responseUpdate = await axios.patch(
           `${apikey}/api/V1/update-profile`,
           { ...userData.data, ...formValues },
@@ -85,7 +93,7 @@ const ButtonUpdate = () => {
             },
           }
         );
-
+  
         Swal.fire({
           icon: "success",
           title: "Update Berhasil!",

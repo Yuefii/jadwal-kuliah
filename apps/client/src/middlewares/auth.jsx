@@ -10,18 +10,6 @@ export const withAuth = (WrappedComponent) => {
 
       if (!token) {
         router.push("/auth/login");
-      } else {
-        try {
-          const decodedToken = jwt_decode(token);
-          const currentTime = Date.now() / 1000;
-          if (decodedToken.exp < currentTime) {
-            localStorage.removeItem("token");
-            router.push("/auth/login");
-          }
-        } catch (error) {
-          console.error("Error decoding token:", error);
-          router.push("/auth/login");
-        }
       }
     }, [router]);
 

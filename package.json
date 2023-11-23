@@ -5,12 +5,8 @@
   "scripts": {
     "client:install": "cd apps/client && yarn add",
     "server:install": "cd apps/server && yarn add",
-    "mobile:install": "cd apps/mobile && yarn add",
     "dev:client": "cd apps/client && npx next dev",
-    "dev:mobile": "cd apps/mobile && npx expo start --clear",
     "dev:server": "cd apps/server && yarn run dev",
-    "docker": "cd apps/server && docker-compose up -d",
-    "docker-stop": "cd apps/server && docker-compose down",
     "db:push": "cd apps/server && npx prisma db push",
     "db:migrate": "cd apps/server && npx prisma migrate dev",
     "db:studio": "cd apps/server && npx prisma studio",
